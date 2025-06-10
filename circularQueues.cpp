@@ -2,6 +2,9 @@
 using namespace std;
 
 class Queues {
+
+    private:
+    static const int max = 5;
     int FRONT, REAR, max = 5;
     int queues_array[5];
 
@@ -18,3 +21,31 @@ class Queues {
         cin >> num;
         cout << endl;
 
+        //cek apakah antrian penuh
+        if ((FRONT == 0 && REAR == max -1) || (FRONT == REAR + 1)) {
+            cout << "\nQueue overflow\n";
+            return;
+        }
+
+        // cek apakah antrian kosong 
+        if (FRONT == max -1) {
+             FRONT = 0;
+             REAR = 0;
+        }
+        else {
+            // jika REAR berada di posisi terakhir array, kembali ke awal array 
+            if (REAR == max -1)
+                REAR = 0;
+            else
+                REAR = REAR + 1;
+        }  
+        queues_array [REAR] = num;
+    }
+
+    void remove() {
+        // cek apakah antrian kosong
+        if (FRONT == -1) {
+            cout << "Queue underflow\n"
+            return;
+        }
+       
