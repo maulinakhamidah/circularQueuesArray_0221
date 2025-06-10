@@ -103,9 +103,9 @@ class Queues {
     }
 };
 
-int maain() 
+int main() 
 {
     Queues q;
     char ch;
 
-   
+    
