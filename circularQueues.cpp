@@ -26,3 +26,10 @@ class Queues {
             cout << "\nQueue overflow\n";
             return;
         }
+
+        // cek apakah antrian kosong 
+        if (FRONT == max -1) {
+             FRONT = 0;
+             REAR = 0;
+        }
+        else {
