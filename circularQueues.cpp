@@ -103,3 +103,9 @@ class Queues {
     }
 };
 
+int maain() 
+{
+    Queues q;
+    char ch;
+
+   
