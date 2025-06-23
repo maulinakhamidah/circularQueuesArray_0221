@@ -1,31 +1,94 @@
+/**
+ * @mainpage documentation circular queues
+ * 
+ * @section introduction
+ * project ini merupakan project struktur data
+ * menggunakan struktur data queues dengan pendekatan circular arrays
+ * 
+ * @section operations
+ * - en queue for insert elements into queues
+ * - de queue for delete elements from queues
+ * - show data / display
+ * 
+ * @section how to use
+ * 1. insert 
+ * 2. delete
+ * 3. display
+ * 4. exit
+ * 
+ * @author your name (you@domain.com)
+ * - nama : maulina khamidah
+ * - nim : 20240140221
+ * - kelas : E
+ * 
+ * @brief
+ * @version 0.1
+ * @date 2025-06-23
+ * 
+ * @copyright Gibran@umy.ac.id (c) 2025
+ */
+ 
 #include <iostream>
 using namespace std;
 
+/**
+ * @class queues
+ * @brief this class is for operation queue
+ * 
+ */
+ 
 class Queues {
 
     private:
-    static const int max = 5;
-    int FRONT, REAR, max = 5;
-    int queues_array[5];
+    int FRONT;              /// private variable front for incicate the first element
+    int REAR ;             /// private variable rear for indicate the last element
+    int max = 5;          /// private variable max for maximum capasity of element
+    int queues_array[5]; /// private variable queue_array to store elements
 
     public:
-    Queues()
+    /**
+     * @brief construct a new queues object
+     * set default queues null
+     * with front = -1 and rear = -1
+     * 
+     */
+
+    Queues()     /// constructor untuk mengatur nilai ke rear -1
     {
-        FRONT = -1;
-        REAR = -1;
+        FRONT = -1;  /// antrian kosong
+        REAR = -1;  
     }
 
-    void insert() {
-        int num;
-        cout << "Enter a number: ";
-        cin >> num;
-        cout << endl;
+    /**
+     * @brief method for entering data into a queue
+     * @constructor untuk mengatur nilai ke rear -1
+     */
+
+    void insert() {    
+        int num;      
+        cout << "Enter a number: ";  
+        cin >> num;   
+        cout << endl;   
+
+        /**
+         * @brief Construct 
+         * 1. int num menyimpan angka pada num
+         * 2. void insert menambahkan element ke dalam antrian queues
+         * 3. cout << "Enter a number: untuk menyimpan data pada queues
+         * 4. cin >> num menyimpan data pada queues
+         * @param FRONT 
+         */
 
         //cek apakah antrian penuh
         if ((FRONT == 0 && REAR == max -1) || (FRONT == REAR + 1)) {
             cout << "\nQueue overflow\n";
             return;
         }
+
+        /**
+         * @brief Construct a new if object
+         * mengecek apakah antrian sudah penuh
+         */
 
         // cek apakah antrian kosong 
         if (FRONT == max -1) {
@@ -42,10 +105,10 @@ class Queues {
         queues_array [REAR] = num;
     }
 
-    void remove() {
+    void remove() {              /// untuk menghapus elemen antrian dari depan 
         // cek apakah antrian kosong
         if (FRONT == -1) {
-            cout << "Queue underflow\n"
+            cout << "Queue underflow\n";
             return;
         }
         cout << "\nThe element deleted from the queue is: " << queues_array[FRONT] << "\n";
@@ -65,9 +128,9 @@ class Queues {
         }
     }
 
-    void display() {
-        int FRONT_position = FRONT;
-        int REAR_position = REAR;;
+    void display() {         /// untuk menampilkan data pada antrian queues
+        int FRONT_position = FRONT;   /// variable
+        int REAR_position = REAR;;    /// variable
 
         //cek apakah antrian kosong
         if (FRONT == -1) {
@@ -103,7 +166,7 @@ class Queues {
     }
 };
 
-int main() 
+int main()       /// menampilkan fungsi pada data 
 {
     Queues q;
     char ch;
